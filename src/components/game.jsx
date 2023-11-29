@@ -14,6 +14,7 @@ const Game = () => {
   const [selectedCards, setSelectedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
   const [lives, setLives] = useState(3);
+  const [step, setStep] = useState("initial");
 
   // Função para criar a pilha (array de cartas)
   const createStack = useCallback(() => {
@@ -34,6 +35,8 @@ const Game = () => {
     console.log("restart");
     setLives(3);
     setCards(createStack());
+    setStep("initial");
+    setMatchedCards([]);
 
     // Vire todas as cartas por 5 segundos antes do início do jogo
     const timer = setTimeout(() => {
@@ -81,25 +84,29 @@ const Game = () => {
         console.log("imagens diferentes");
         setLives((prevLives) => prevLives - 1);
         if (lives === 1) {
-          // Game over
-          // Reinicie o jogo chamando uma função para reiniciar os estados
+          setStep("lose");
         } else {
           console.log({ selectedCards });
-          // Desvire as cartas após um intervalo de tempo (1 segundo)
+          // Desvire as cartas selecionadas após um intervalo de tempo (1 segundo)
           setTimeout(() => {
             setCards((prevCards) =>
-              prevCards.map((card, index) => ({
-                ...card,
-                isFlipped: false,
-                id: index,
-              }))
+              prevCards.map((card) => {
+                if (card.id === firstCard || card.id === secondCard) {
+                  return {
+                    ...card,
+                    isFlipped: false,
+                  };
+                }
+                return card;
+              })
             );
-          }, 1500);
+          }, 1000);
           setSelectedCards([]);
         }
       } else {
         // Cartas iguais, defina-as como correspondidas e limpe a seleção
         setMatchedCards([...matchedCards, firstCard, secondCard]);
+
         setSelectedCards([]);
       }
     }
@@ -107,7 +114,6 @@ const Game = () => {
 
   // Renderização das cartas
   const renderCards = () => {
-    console.log(cards);
     return cards.map((card) => (
       <div
         className="card"
@@ -126,20 +132,33 @@ const Game = () => {
     ));
   };
 
+  useEffect(() => {
+    if (matchedCards.length === cards.length) {
+      setStep("winner");
+    }
+  }, [matchedCards, cards]);
+
   return (
-    <div className="App">
-      {lives > 0 ? (
-        <>
+    <>
+      {step === "initial" && (
+        <div className="App">
           <div className="board">{renderCards()}</div>
           <Lives numeroDeImagens={lives} />
-        </>
-      ) : (
+        </div>
+      )}
+      {step === "lose" && (
         <>
           <h3>Você perdeu!</h3>
-          <button onClick={restart()}>Reiniciar jogo</button>
+          <button onClick={restart}>Reiniciar jogo</button>
         </>
       )}
-    </div>
+      {step === "winner" && (
+        <>
+          <h3>Você Ganhou!</h3>
+          <button onClick={restart}>Reiniciar jogo</button>
+        </>
+      )}
+    </>
   );
 };
 
