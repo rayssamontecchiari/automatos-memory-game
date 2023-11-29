@@ -7,6 +7,9 @@
 }
 
 .App-title {
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: #b38cb4;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -16,6 +19,7 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   gap: 20px;
+  max-width: 670px;
 }
 
 .card,
@@ -30,15 +34,45 @@
   width: 150px;
   height: 150px;
   border-radius: 20px;
-  background: gray;
+  background: #f8f272;
 }
 
 .life-heart {
+  font-size: 2rem;
   display: flex;
   align-items: center;
+  margin-top: 20px;
 }
 
 .life-heart img {
   width: 40px;
   height: 40px;
+}
+
+.title {
+  font-size: 2.5rem;
+}
+
+.game-over .title {
+  color: #b7918c;
+}
+
+.winner .title {
+  color: #f8f272;
+}
+
+.button {
+  border-radius: 100%;
+  padding: 20px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.winner .button {
+  background-color: #f8f272;
+  border: none;
+}
+
+.game-over .button {
+  background-color: #c5a48a;
 }

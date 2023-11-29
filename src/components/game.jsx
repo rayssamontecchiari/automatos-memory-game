@@ -8,6 +8,8 @@ import Lives from "../components/lives";
 // import GameOver from "../components/game-over";
 
 import "../styles/game.css"; // Estilo para as cartas
+import GameOver from "./game-over";
+import Winner from "./winner";
 
 const Game = () => {
   const [cards, setCards] = useState([]);
@@ -133,7 +135,7 @@ const Game = () => {
   };
 
   useEffect(() => {
-    if (matchedCards.length === cards.length) {
+    if (cards.length !== 0 && matchedCards.length === cards.length) {
       setStep("winner");
     }
   }, [matchedCards, cards]);
@@ -146,18 +148,8 @@ const Game = () => {
           <Lives numeroDeImagens={lives} />
         </div>
       )}
-      {step === "lose" && (
-        <>
-          <h3>Você perdeu!</h3>
-          <button onClick={restart}>Reiniciar jogo</button>
-        </>
-      )}
-      {step === "winner" && (
-        <>
-          <h3>Você Ganhou!</h3>
-          <button onClick={restart}>Reiniciar jogo</button>
-        </>
-      )}
+      {step === "lose" && <GameOver onClick={restart} />}
+      {step === "winner" && <Winner onClick={restart} />}
     </>
   );
 };
