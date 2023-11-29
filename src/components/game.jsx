@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import Stack from "./stack"
 
 import dog1 from "./assets/dog1.jpg";
 import dog2 from "./assets/dog2.png";
@@ -17,6 +18,8 @@ const Game = () => {
   const [matchedCards, setMatchedCards] = useState([]);
   const [lives, setLives] = useState(3);
   const [step, setStep] = useState("initial");
+  const { stack, setStack, pushToStack, popFromStack } = Stack()
+  const [countStack, setCountStack] = useState(0)
 
   // Função para criar a pilha (array de cartas)
   const createStack = useCallback(() => {
@@ -24,7 +27,7 @@ const Game = () => {
     const doubledImages = images.concat(images);
     const shuffledCards = doubledImages.sort(() => Math.random() - 0.5);
 
-    console.log({ shuffledCards });
+    //console.log({ shuffledCards });
     return shuffledCards.map((image, index) => ({
       id: index,
       image,
@@ -39,6 +42,8 @@ const Game = () => {
     setCards(createStack());
     setStep("initial");
     setMatchedCards([]);
+    setStack([]);
+    setCountStack(0);
 
     // Vire todas as cartas por 5 segundos antes do início do jogo
     const timer = setTimeout(() => {
@@ -60,6 +65,22 @@ const Game = () => {
   // Manipulador de clique da carta
   const handleCardClick = (id) => {
     const clickedCard = cards.find((card) => card.id === id);
+    if(selectedCards.length == 0 && countStack == 0){
+      cards.find((card) => { if (card.id === id) {
+          pushToStack(card.image);
+        }
+      })
+    } else if(selectedCards.length % 2 == 0) {
+        cards.find((card) => { if (card.id === id) {
+          if(popFromStack() != card.image){
+            pushToStack(card.image);
+          } else {
+            popFromStack();
+            pushToStack(card.image);
+          }
+        }})
+    }
+
     console.log({ clickedCard });
     if (
       !selectedCards.includes(id) &&
@@ -79,11 +100,20 @@ const Game = () => {
   useEffect(() => {
     if (selectedCards.length === 2) {
       const [firstCard, secondCard] = selectedCards;
+      const fcard = popFromStack()
       const firstSelectedCard = cards.find((card) => card.id === firstCard);
       const secondSelectedCard = cards.find((card) => card.id === secondCard);
-
-      if (firstSelectedCard.image !== secondSelectedCard.image) {
-        console.log("imagens diferentes");
+      console.log(firstSelectedCard)
+      console.log(secondSelectedCard)
+      console.log(fcard)
+      if(fcard === secondSelectedCard.image) {
+          setMatchedCards([...matchedCards, firstCard, secondCard]);
+          setSelectedCards([]);
+      } else {
+        if(stack.length == 1){
+          pushToStack(firstSelectedCard.image)
+          setCountStack(1)
+        }
         setLives((prevLives) => prevLives - 1);
         if (lives === 1) {
           setStep("lose");
@@ -105,12 +135,8 @@ const Game = () => {
           }, 1000);
           setSelectedCards([]);
         }
-      } else {
-        // Cartas iguais, defina-as como correspondidas e limpe a seleção
-        setMatchedCards([...matchedCards, firstCard, secondCard]);
-
-        setSelectedCards([]);
       }
+
     }
   }, [selectedCards, cards, lives, matchedCards]);
 
@@ -131,6 +157,7 @@ const Game = () => {
           <div className="card-not-flipped"></div>
         )}
       </div>
+      
     ));
   };
 
@@ -146,6 +173,14 @@ const Game = () => {
         <div className="App">
           <div className="board">{renderCards()}</div>
           <Lives numeroDeImagens={lives} />
+          <div>
+            <h2>Pilha:</h2>
+          <ul>
+            {stack.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        </div>
         </div>
       )}
       {step === "lose" && <GameOver onClick={restart} />}
