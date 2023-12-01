@@ -1,5 +1,5 @@
-.Appgame {
-  background-image: url('../components/assets/backgroundgames.jpg');
+.Appanimals {
+  background-image: url('../components/assets/backgroundanimals.jpg');
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat; 
@@ -11,8 +11,7 @@
   padding: 80px;
   padding-bottom: 180px;
   color: white;
-  font-family: "Silkscreen", serif;
-
+  font-family: "Amatic SC", sans-serif;
 }
 
 .board {

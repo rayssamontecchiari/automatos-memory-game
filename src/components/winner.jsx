@@ -1,11 +1,16 @@
+import { Link } from "react-router-dom";
+
 const Winner = (onClick) => {
   return (
-    <div className="winner">
-      <h3 className="title">Você Ganhou!</h3>
-      <button className="button" onClick={onClick.onClick}>
-        Reiniciar jogo
-      </button>
+    <div className="App">
+      <div className="winner">
+        <h3 className="title">Você Ganhou!</h3>
+        <Link to="/"><button className="button">
+          Reiniciar jogo
+        </button></Link>
+      </div>
     </div>
+      
   );
 };
 

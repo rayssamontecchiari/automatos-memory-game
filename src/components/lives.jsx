@@ -1,5 +1,5 @@
 import React from "react";
-import life from "./assets/life.jpeg";
+import life from "./assets/vida.png";
 
 function Lives(props) {
   const { numeroDeImagens } = props;
