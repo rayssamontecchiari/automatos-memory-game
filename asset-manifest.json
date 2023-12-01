@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/automatos-memory-game/static/css/main.a0bf78fc.css",
+    "main.js": "/automatos-memory-game/static/js/main.19b6a643.js",
+    "static/js/787.396094d0.chunk.js": "/automatos-memory-game/static/js/787.396094d0.chunk.js",
+    "static/media/cerebro.gif": "/automatos-memory-game/static/media/cerebro.cfb36843d950dd166c3a.gif",
+    "static/media/game4.jpg": "/automatos-memory-game/static/media/game4.5d06ae80e514c2624c06.jpg",
+    "static/media/dog3.jpg": "/automatos-memory-game/static/media/dog3.a47d99a86c04bbd5e570.jpg",
+    "static/media/dog2.jpg": "/automatos-memory-game/static/media/dog2.67549b6970e69df8f436.jpg",
+    "static/media/backgroundhero.jpg": "/automatos-memory-game/static/media/backgroundhero.156af1eece55bd3a7aba.jpg",
+    "static/media/backgroundgames.jpg": "/automatos-memory-game/static/media/backgroundgames.5afd8a114d9c7b3c4291.jpg",
+    "static/media/backgroundanimals.jpg": "/automatos-memory-game/static/media/backgroundanimals.a5b0ca6d42959a743078.jpg",
+    "static/media/hero4.jpg": "/automatos-memory-game/static/media/hero4.89bf95b61a27efdc1740.jpg",
+    "static/media/hero3.jpg": "/automatos-memory-game/static/media/hero3.92f465fd814387efc285.jpg",
+    "static/media/hero1.jpg": "/automatos-memory-game/static/media/hero1.dc8c658b639cd180ed1a.jpg",
+    "static/media/hero2.jpg": "/automatos-memory-game/static/media/hero2.eb72af077b0b5a8c46b6.jpg",
+    "static/media/game3.jpg": "/automatos-memory-game/static/media/game3.0ec6ec60eed5a3bedbff.jpg",
+    "static/media/backgroundcard.jpg": "/automatos-memory-game/static/media/backgroundcard.cb6dfe6c658d080ae0c6.jpg",
+    "static/media/game2.jpeg": "/automatos-memory-game/static/media/game2.55b6f68a51f8aa3de745.jpeg",
+    "static/media/vida.png": "/automatos-memory-game/static/media/vida.17d15d600e2a1e0eaffe.png",
+    "static/media/background.jpg": "/automatos-memory-game/static/media/background.c262b793602d94c5bcfb.jpg",
+    "static/media/dog4.jpg": "/automatos-memory-game/static/media/dog4.b86891dca338cb0a89fa.jpg",
+    "static/media/game1.jpg": "/automatos-memory-game/static/media/game1.f97d4bc88555deac0e1a.jpg",
+    "static/media/dog1.jpg": "/automatos-memory-game/static/media/dog1.2ff7f5f6e5898f7b4fd0.jpg",
+    "index.html": "/automatos-memory-game/index.html",
+    "main.a0bf78fc.css.map": "/automatos-memory-game/static/css/main.a0bf78fc.css.map",
+    "main.19b6a643.js.map": "/automatos-memory-game/static/js/main.19b6a643.js.map",
+    "787.396094d0.chunk.js.map": "/automatos-memory-game/static/js/787.396094d0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a0bf78fc.css",
+    "static/js/main.19b6a643.js"
+  ]
+}
