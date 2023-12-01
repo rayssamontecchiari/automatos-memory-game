@@ -5,7 +5,7 @@ const Winner = (onClick) => {
     <div className="App">
       <div className="winner">
         <h3 className="title">Você Ganhou!</h3>
-        <Link to="/"><button className="button">
+        <Link to="/automatos-jogo-memoria/"><button className="button">
           Reiniciar jogo
         </button></Link>
       </div>

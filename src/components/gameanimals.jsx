@@ -66,7 +66,7 @@ const GameAnimals = () => {
   // Manipulador de clique da carta
   const handleCardClick = (id) => {
     const clickedCard = cards.find((card) => card.id === id);
-    if(selectedCards.length == 0 && countStack == 0){
+    if(selectedCards.length === 0 && countStack === 0){
       cards.find((card) => { if (card.id === id) {
           pushToStack(card.image);
         }

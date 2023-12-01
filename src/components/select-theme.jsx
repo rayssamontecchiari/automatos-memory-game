@@ -10,9 +10,9 @@ const SelectTheme = (onClick) => {
           <img className="gif" src={cerebro} alt="cerebro" />
           <h3 className="title-theme">Escolha seu tema!</h3>
           
-          <Link to="/animals"><button className="button-theme">Caes e Gatos</button></Link>
-          <Link to="/hero"><button className="button-theme">Super Heróis</button></Link>
-          <Link to="/game"><button className="button-theme">Games Retrô</button></Link>
+          <Link to="/automatos-jogo-memoria/animals"><button className="button-theme">Caes e Gatos</button></Link>
+          <Link to="/automatos-jogo-memoria/hero"><button className="button-theme">Super Heróis</button></Link>
+          <Link to="/automatos-jogo-memoria/game"><button className="button-theme">Games Retrô</button></Link>
         </div>
     </div>
   );

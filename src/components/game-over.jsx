@@ -5,7 +5,7 @@ const GameOver = (onClick) => {
     <div className="App">
       <div className="game-over">
         <h3 className="title">Você perdeu!</h3>
-        <Link to="/"><button className="button" onClick={onClick.onClick}>
+        <Link to="/automatos-jogo-memoria/"><button className="button" onClick={onClick.onClick}>
           Reiniciar jogo
         </button></Link>
       </div>
