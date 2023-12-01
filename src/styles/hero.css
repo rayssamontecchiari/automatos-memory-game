@@ -1,5 +1,5 @@
-.Appgame {
-  background-image: url('../components/assets/backgroundgames.jpg');
+.Apphero {
+  background-image: url('../components/assets/backgroundhero.jpg');
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat; 
@@ -11,7 +11,8 @@
   padding: 80px;
   padding-bottom: 180px;
   color: white;
-  font-family: "Silkscreen", serif;
+  font-family: "Bangers", serif;
+  letter-spacing:0.1em
 
 }
 

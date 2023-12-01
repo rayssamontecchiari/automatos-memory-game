@@ -1,18 +1,19 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Stack from "./stack"
 
-import dog1 from "./assets/dog1.jpg";
-import dog2 from "./assets/dog2.png";
-import dog3 from "./assets/dog3.jpg";
-import dog4 from "./assets/dog4.jpg";
-import Lives from "../components/lives";
+
 // import GameOver from "../components/game-over";
 
-import "../styles/game.css"; // Estilo para as cartas
+import "../styles/hero.css"; // Estilo para as cartas
 import GameOver from "./game-over";
 import Winner from "./winner";
+import hero1 from "./assets/hero1.jpg";
+import hero2 from "./assets/hero2.jpg";
+import hero3 from "./assets/hero3.jpg";
+import hero4 from "./assets/hero4.jpg";
+import Lives from "../components/lives";
 
-const Game = () => {
+const GameHero = () => {
   const [cards, setCards] = useState([]);
   const [selectedCards, setSelectedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
@@ -23,7 +24,7 @@ const Game = () => {
 
   // Função para criar a pilha (array de cartas)
   const createStack = useCallback(() => {
-    const images = [dog1, dog2, dog3, dog4];
+    const images = [hero1, hero2, hero3, hero4];
     const doubledImages = images.concat(images);
     const shuffledCards = doubledImages.sort(() => Math.random() - 0.5);
 
@@ -170,17 +171,20 @@ const Game = () => {
   return (
     <>
       {step === "initial" && (
-        <div className="App">
-          <div className="board">{renderCards()}</div>
+        <div className="Apphero">
           <Lives numeroDeImagens={lives} />
-          <div>
-            <h2>Pilha:</h2>
-          <ul>
-            {stack.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        </div>
+          <div className="board">
+            {renderCards()}
+          </div>
+          
+          <div className="pilha">
+            <h2 className="pilha-title">Pilha:</h2>
+            <ul className="pilha-list">
+              {stack.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
       {step === "lose" && <GameOver onClick={restart} />}
@@ -189,4 +193,4 @@ const Game = () => {
   );
 };
 
-export default Game;
+export default GameHero;

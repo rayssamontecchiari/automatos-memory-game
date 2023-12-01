@@ -1,38 +1,127 @@
-.App {
-  text-align: center;
+*{
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App{
+    background-image: url('../components/assets/background.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100vh;
+    padding: 80px;
+    padding-bottom: 180px;
+    font-family: 'Londrina Solid', sans-serif;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+
+.App-title {
+    font-size: 5rem;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.select-theme{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+  
+.title-theme{
+
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+.button-theme{
+    font-family: 'Londrina Solid', sans-serif;
+    font-size: 1.5rem;
+    width: 150px;
+    padding: 5px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.button-theme:hover{
+    background-color: rgb(199, 13, 75);
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.gif{
+    max-height: 300px;
+}
+
+  .winner, .game-over{
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    align-items: center;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .winner .title {
+    color: #00ec14;
+    font-size: 3rem;
+    text-shadow: 
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
   }
-  to {
-    transform: rotate(360deg);
+
+  .game-over .title {
+    color: #ff4f38;
+    font-size: 3rem;
+    text-shadow: 
+        -1px -1px 0 #000,  
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+
   }
-}
+  
+  
+  .winner .button {
+
+    font-family: 'Londrina Solid', sans-serif;
+    background-color: #00ec14;
+    font-size: 1.8rem;
+    border-radius: 5px;
+    padding: 15px;
+    color: #000;
+    text-transform: uppercase;
+    border: 6px solid ;
+  }
+
+  .winner .button:hover{
+    background-color: rgb(133, 255, 143);
+    cursor: pointer;
+  }
+  
+  .game-over .button {
+    
+    font-family: 'Londrina Solid', sans-serif;
+    background-color: #ff4f38;
+    font-size: 1.8rem;
+    border-radius: 5px;
+    padding: 15px;
+    color: #000;
+    text-transform: uppercase;
+    border: 6px solid ;
+  }
+  
+
+  .game-over .button:hover{
+    background-color: #ff7562;
+    cursor: pointer;
+  }
+  
